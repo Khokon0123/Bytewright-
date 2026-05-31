@@ -1,26 +1,176 @@
 @import "tailwindcss";
 
+/* ── Raw design tokens — switch with .dark class ─────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg:             #F8F8FC;
+  --surface:        #FFFFFF;
+  --surface-hover:  #F2F2FA;
+  --border:         #E2E2F0;
+  --text-primary:   #0A0A15;
+  --text-secondary: #6B6B8A;
+  --accent:         #6366F1;
+  --accent-dim:     rgba(99, 102, 241, 0.08);
+  --accent-hover:   #4F46E5;
 }
 
+.dark {
+  --bg:             #07070F;
+  --surface:        #0E0E1C;
+  --surface-hover:  #141428;
+  --border:         #1C1C2E;
+  --text-primary:   #F0F0FF;
+  --text-secondary: #7A7A9A;
+  --accent:         #6366F1;
+  --accent-dim:     rgba(99, 102, 241, 0.12);
+  --accent-hover:   #818CF8;
+}
+
+/* ── Tailwind v4 theme mapping ────────────────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-base:          var(--bg);
+  --color-surface:       var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-line:          var(--border);
+  --color-primary:       var(--text-primary);
+  --color-muted:         var(--text-secondary);
+  --color-accent:        var(--accent);
+  --color-accent-dim:    var(--accent-dim);
+  --color-accent-hover:  var(--accent-hover);
+
+  --font-display: var(--font-space-grotesk);
+  --font-sans:    var(--font-dm-sans);
+  --font-mono:    var(--font-jb-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Base reset & defaults ────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Focus styles ─────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* ── Selection ────────────────────────────────────────────────────────── */
+::selection {
+  background: var(--accent-dim);
+  color: var(--text-primary);
+}
+
+/* ── Skip to main content ─────────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 8px 8px;
+  font-family: var(--font-dm-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ── Hero gradient orb (CSS-only, no JS) ──────────────────────────────── */
+.hero-orb {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-orb::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(99, 102, 241, 0.15) 0%,
+    rgba(139, 92, 246, 0.08) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: orb-drift 12s ease-in-out infinite alternate;
+}
+
+@keyframes orb-drift {
+  0%   { transform: translateX(-55%) translateY(0px); opacity: 0.7; }
+  100% { transform: translateX(-45%) translateY(-30px); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb::before {
+    animation: none;
+  }
+}
+
+/* ── Marquee scrolling strip ──────────────────────────────────────────── */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 40s linear infinite;
+  padding: 0 1rem;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    overflow-x: auto;
+  }
 }
