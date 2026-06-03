@@ -134,7 +134,6 @@ export function ImageMarquee() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-12">
         <ScrollReveal>
           <SectionHeader
-            eyebrow="Examples"
             heading="Built for every industry."
             subtext="From nonprofits to SaaS startups — we build exactly what the project demands."
           />

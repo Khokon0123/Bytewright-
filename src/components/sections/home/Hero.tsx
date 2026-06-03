@@ -147,9 +147,6 @@ export function Hero() {
               </LinkButton>
             </div>
 
-            <p className="text-muted text-sm font-mono tracking-wide">
-              3 projects · 100% satisfaction · New York
-            </p>
           </div>
 
           {/* Right: MacBook */}
