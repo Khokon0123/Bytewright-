@@ -50,7 +50,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${fontDisplay.variable} ${fontBody.variable} ${fontMono.variable}`}
     >
-      <body className="min-h-screen bg-base text-primary antialiased">
+      <body suppressHydrationWarning className="min-h-screen bg-base text-primary antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

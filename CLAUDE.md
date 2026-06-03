@@ -67,7 +67,7 @@ Light mode:
 ```
 
 ### Fonts
-- Display: Syne (700, 800) — H1, H2, wordmark ONLY
+- Display: Bricolage Grotesque (700, 800) — H1, H2, wordmark ONLY
 - Body: DM Sans (400, 500, 600) — everything else
 - Mono: JetBrains Mono (400, 500) — eyebrows, badges, accents
 

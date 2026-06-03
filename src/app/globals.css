@@ -37,7 +37,7 @@
   --color-accent-dim:    var(--accent-dim);
   --color-accent-hover:  var(--accent-hover);
 
-  --font-display: var(--font-space-grotesk);
+  --font-display: var(--font-bricolage);
   --font-sans:    var(--font-dm-sans);
   --font-mono:    var(--font-jb-mono);
 }
@@ -151,12 +151,14 @@ body {
   }
 }
 
+
 /* ── Marquee scrolling strip ──────────────────────────────────────────── */
 .marquee-track {
   display: flex;
+  gap: 1.25rem;
   width: max-content;
-  animation: marquee-scroll 40s linear infinite;
-  padding: 0 1rem;
+  animation: marquee-scroll 50s linear infinite;
+  padding: 0.5rem 1.25rem;
 }
 
 .marquee-track:hover {

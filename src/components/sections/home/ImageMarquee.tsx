@@ -1,237 +1,141 @@
+import Image from "next/image";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
+/* Real website/app screenshots via Unsplash — swap with your own screenshots later */
 const marqueeItems = [
   {
+    label: "Analytics Dashboard",
+    sub: "SaaS · Enterprise",
+    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=720&h=460&q=80",
+    url: "bytewright.com/dashboard",
+  },
+  {
     label: "Portfolio Site",
-    sub: "Personal brand — Design",
-    gradient: "from-violet-600/30 to-indigo-800/30",
-    accent: "#7C3AED",
-    layout: "portfolio",
+    sub: "Personal Brand · Design",
+    src: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=720&h=460&q=80",
+    url: "bytewright.com/portfolio",
   },
   {
-    label: "AI Chatbot",
-    sub: "Customer support — SaaS",
-    gradient: "from-cyan-600/30 to-blue-800/30",
-    accent: "#0891B2",
-    layout: "chat",
+    label: "AI Chatbot Interface",
+    sub: "Startup · Customer Support",
+    src: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=720&h=460&q=80",
+    url: "bytewright.com/ai-chatbot",
   },
   {
-    label: "Business Dashboard",
-    sub: "Analytics platform — Enterprise",
-    gradient: "from-slate-700/40 to-indigo-900/40",
-    accent: "#6366F1",
-    layout: "dashboard",
-  },
-  {
-    label: "Web Application",
-    sub: "Booking system — Startup",
-    gradient: "from-emerald-700/30 to-teal-900/40",
-    accent: "#059669",
-    layout: "webapp",
+    label: "E-commerce Storefront",
+    sub: "Retail · D2C",
+    src: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=720&h=460&q=80",
+    url: "bytewright.com/store",
   },
   {
     label: "Corporate Website",
-    sub: "Marketing site — Agency",
-    gradient: "from-orange-600/25 to-rose-800/30",
-    accent: "#EA580C",
-    layout: "marketing",
+    sub: "B2B · Marketing",
+    src: "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=720&h=460&q=80",
+    url: "bytewright.com/corporate",
   },
   {
-    label: "Software App",
-    sub: "Productivity tool — B2B",
-    gradient: "from-fuchsia-700/30 to-purple-900/40",
-    accent: "#A21CAF",
-    layout: "software",
+    label: "SaaS Web Application",
+    sub: "Productivity · B2B",
+    src: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=720&h=460&q=80",
+    url: "bytewright.com/web-app",
   },
   {
-    label: "E-commerce Store",
-    sub: "Retail platform — D2C",
-    gradient: "from-amber-600/25 to-orange-900/30",
-    accent: "#D97706",
-    layout: "ecommerce",
+    label: "Business Dashboard",
+    sub: "Operations · Analytics",
+    src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=720&h=460&q=80",
+    url: "bytewright.com/bi-dashboard",
   },
   {
-    label: "Non-profit Website",
-    sub: "Community org — Welfare",
-    gradient: "from-green-700/30 to-emerald-900/40",
-    accent: "#15803D",
-    layout: "nonprofit",
+    label: "Software Platform",
+    sub: "Startup · Full-stack",
+    src: "https://images.unsplash.com/photo-1573867639040-6dd25fa5f597?auto=format&fit=crop&w=720&h=460&q=80",
+    url: "bytewright.com/software",
   },
 ];
 
-function MockBrowserCard({
+const doubled = [...marqueeItems, ...marqueeItems];
+
+function BrowserCard({
   item,
 }: {
   item: (typeof marqueeItems)[0];
 }) {
   return (
     <div
-      className="flex-shrink-0 w-72 rounded-xl border border-white/10 overflow-hidden"
+      className="flex-shrink-0 w-[340px] rounded-xl overflow-hidden border border-line shadow-lg"
       style={{ background: "var(--surface)" }}
     >
       {/* Browser chrome */}
       <div
-        className="flex items-center gap-2 px-4 py-3 border-b border-white/10"
-        style={{ background: "rgba(255,255,255,0.03)" }}
+        className="flex items-center gap-2.5 px-4 py-2.5 border-b border-line"
+        style={{ background: "var(--surface-hover)" }}
       >
-        <div className="flex gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-          <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-          <span className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+        {/* Traffic lights */}
+        <div className="flex gap-1.5 shrink-0">
+          <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
+          <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
+          <span className="w-2.5 h-2.5 rounded-full bg-green-400/80" />
         </div>
+        {/* URL bar */}
         <div
-          className="flex-1 h-5 rounded-full text-[10px] font-mono flex items-center px-3"
+          className="flex-1 flex items-center h-5 rounded-full px-3 font-mono text-[10px] truncate"
           style={{
-            background: "rgba(255,255,255,0.05)",
+            background: "var(--bg)",
             color: "var(--text-secondary)",
           }}
         >
-          bytewright.com/{item.label.toLowerCase().replace(/\s+/g, "-")}
+          {item.url}
         </div>
       </div>
 
-      {/* Mock screenshot body */}
-      <div className={`relative h-44 bg-gradient-to-br ${item.gradient} p-4 overflow-hidden`}>
-        <MockContent layout={item.layout} accent={item.accent} />
+      {/* Screenshot */}
+      <div className="relative w-full h-[200px] overflow-hidden">
+        <Image
+          src={item.src}
+          alt={item.label}
+          fill
+          sizes="340px"
+          className="object-cover object-top"
+          unoptimized={false}
+        />
       </div>
 
-      {/* Card label */}
-      <div className="px-4 py-3 flex items-center justify-between">
-        <div>
+      {/* Card footer */}
+      <div className="px-4 py-3 flex items-center justify-between gap-3">
+        <div className="min-w-0">
           <p
-            className="font-display font-semibold text-sm"
+            className="font-display font-semibold text-sm truncate"
             style={{ color: "var(--text-primary)" }}
           >
             {item.label}
           </p>
-          <p className="font-mono text-[10px] mt-0.5" style={{ color: "var(--text-secondary)" }}>
+          <p
+            className="font-mono text-[10px] mt-0.5"
+            style={{ color: "var(--text-secondary)" }}
+          >
             {item.sub}
           </p>
         </div>
-        <div
-          className="w-5 h-5 rounded-full opacity-80"
-          style={{ background: item.accent }}
+        {/* Accent dot */}
+        <span
+          className="w-2 h-2 rounded-full shrink-0 bg-accent"
+          aria-hidden
         />
       </div>
     </div>
   );
 }
 
-function MockContent({ layout, accent }: { layout: string; accent: string }) {
-  if (layout === "chat") {
-    return (
-      <div className="flex flex-col gap-2 h-full justify-center">
-        <div className="flex items-end gap-2">
-          <div className="w-6 h-6 rounded-full flex-shrink-0" style={{ background: accent, opacity: 0.7 }} />
-          <div className="rounded-lg rounded-bl-none p-2 text-[9px] font-mono max-w-[80%]" style={{ background: "rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.7)" }}>
-            Hi! How can I help you today?
-          </div>
-        </div>
-        <div className="flex justify-end">
-          <div className="rounded-lg rounded-br-none p-2 text-[9px] font-mono max-w-[75%]" style={{ background: accent, opacity: 0.8, color: "white" }}>
-            I need help with pricing.
-          </div>
-        </div>
-        <div className="flex items-end gap-2">
-          <div className="w-6 h-6 rounded-full flex-shrink-0" style={{ background: accent, opacity: 0.7 }} />
-          <div className="rounded-lg rounded-bl-none p-2 text-[9px] font-mono max-w-[80%]" style={{ background: "rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.7)" }}>
-            Sure! Our plans start at...
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (layout === "dashboard") {
-    return (
-      <div className="flex flex-col gap-2 h-full">
-        <div className="grid grid-cols-3 gap-2">
-          {["$48.2K", "1,284", "94%"].map((v, i) => (
-            <div key={i} className="rounded-lg p-2" style={{ background: "rgba(255,255,255,0.08)" }}>
-              <div className="text-[9px] font-mono mb-1" style={{ color: "rgba(255,255,255,0.4)" }}>Metric {i + 1}</div>
-              <div className="text-[11px] font-display font-semibold" style={{ color: "rgba(255,255,255,0.85)" }}>{v}</div>
-            </div>
-          ))}
-        </div>
-        <div className="flex-1 rounded-lg p-2 flex items-end gap-1" style={{ background: "rgba(255,255,255,0.05)" }}>
-          {[40, 65, 45, 80, 55, 90, 70, 85, 60, 95].map((h, i) => (
-            <div
-              key={i}
-              className="flex-1 rounded-sm"
-              style={{ height: `${h}%`, background: accent, opacity: 0.7 + (i / 10) * 0.3 }}
-            />
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  if (layout === "portfolio") {
-    return (
-      <div className="flex flex-col gap-2 h-full">
-        <div className="flex gap-2 items-center mb-1">
-          <div className="w-8 h-8 rounded-full" style={{ background: accent, opacity: 0.8 }} />
-          <div>
-            <div className="h-2 w-20 rounded-full mb-1" style={{ background: "rgba(255,255,255,0.3)" }} />
-            <div className="h-1.5 w-14 rounded-full" style={{ background: "rgba(255,255,255,0.15)" }} />
-          </div>
-        </div>
-        <div className="h-2 w-full rounded-full" style={{ background: "rgba(255,255,255,0.2)" }} />
-        <div className="h-2 w-4/5 rounded-full" style={{ background: "rgba(255,255,255,0.15)" }} />
-        <div className="grid grid-cols-2 gap-2 flex-1 mt-1">
-          {[0, 1].map((i) => (
-            <div key={i} className="rounded-lg" style={{ background: "rgba(255,255,255,0.08)" }} />
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  if (layout === "ecommerce") {
-    return (
-      <div className="grid grid-cols-3 gap-1.5 h-full">
-        {[0, 1, 2, 3, 4, 5].map((i) => (
-          <div key={i} className="rounded-lg flex flex-col gap-1 p-1.5" style={{ background: "rgba(255,255,255,0.07)" }}>
-            <div className="flex-1 rounded" style={{ background: "rgba(255,255,255,0.1)" }} />
-            <div className="h-1.5 w-full rounded-full" style={{ background: "rgba(255,255,255,0.2)" }} />
-            <div className="h-1 w-2/3 rounded-full" style={{ background: accent, opacity: 0.7 }} />
-          </div>
-        ))}
-      </div>
-    );
-  }
-
-  /* Generic layout for: webapp, marketing, software, nonprofit */
-  return (
-    <div className="flex flex-col gap-2.5 h-full">
-      <div className="flex gap-3 items-center">
-        <div className="h-2 w-12 rounded-full" style={{ background: accent, opacity: 0.8 }} />
-        <div className="h-2 w-10 rounded-full" style={{ background: "rgba(255,255,255,0.2)" }} />
-        <div className="h-2 w-10 rounded-full" style={{ background: "rgba(255,255,255,0.2)" }} />
-        <div className="ml-auto h-6 w-14 rounded-lg" style={{ background: accent, opacity: 0.7 }} />
-      </div>
-      <div className="h-6 w-3/4 rounded-lg" style={{ background: "rgba(255,255,255,0.15)" }} />
-      <div className="h-3 w-full rounded-full" style={{ background: "rgba(255,255,255,0.1)" }} />
-      <div className="h-3 w-5/6 rounded-full" style={{ background: "rgba(255,255,255,0.08)" }} />
-      <div className="flex gap-2 mt-auto">
-        <div className="h-7 w-20 rounded-lg" style={{ background: accent, opacity: 0.75 }} />
-        <div className="h-7 w-16 rounded-lg border" style={{ borderColor: "rgba(255,255,255,0.15)" }} />
-      </div>
-    </div>
-  );
-}
-
-const doubled = [...marqueeItems, ...marqueeItems];
-
 export function ImageMarquee() {
   return (
-    <section className="py-20 overflow-hidden border-t border-line">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-10">
+    <section className="py-20 border-t border-line overflow-hidden">
+      {/* Header */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-12">
         <ScrollReveal>
           <SectionHeader
-            eyebrow="What We've Built"
-            heading="Crafted for every industry."
+            eyebrow="Examples"
+            heading="Built for every industry."
             subtext="From nonprofits to SaaS startups — we build exactly what the project demands."
           />
         </ScrollReveal>
@@ -239,27 +143,26 @@ export function ImageMarquee() {
 
       {/* Scrolling strip */}
       <div className="relative">
-        {/* Left fade */}
+        {/* Fade masks */}
         <div
-          className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-          style={{
-            background: "linear-gradient(to right, var(--bg), transparent)",
-          }}
+          className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to right, var(--bg), transparent)" }}
+          aria-hidden
         />
-        {/* Right fade */}
         <div
-          className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-          style={{
-            background: "linear-gradient(to left, var(--bg), transparent)",
-          }}
+          className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to left, var(--bg), transparent)" }}
+          aria-hidden
         />
 
-        <div className="flex gap-4 marquee-track">
+        {/* Track */}
+        <div className="marquee-track" aria-label="Project examples scrolling display">
           {doubled.map((item, i) => (
-            <MockBrowserCard key={i} item={item} />
+            <BrowserCard key={i} item={item} />
           ))}
         </div>
       </div>
+
     </section>
   );
 }

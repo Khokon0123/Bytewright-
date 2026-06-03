@@ -1,9 +1,9 @@
-import { Space_Grotesk, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Bricolage_Grotesque, DM_Sans, JetBrains_Mono } from "next/font/google";
 
-export const fontDisplay = Space_Grotesk({
+export const fontDisplay = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-bricolage",
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 
 export const fontBody = DM_Sans({
