@@ -25,7 +25,7 @@ const inputClass = cn(
   "transition-all duration-200 ease-out font-sans"
 );
 
-const labelClass = "block font-mono text-[11px] font-medium tracking-[0.15em] uppercase text-muted mb-2";
+const labelClass = "block font-sans text-xs font-semibold tracking-[0.15em] uppercase text-muted mb-2";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);

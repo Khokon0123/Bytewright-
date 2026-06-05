@@ -18,7 +18,7 @@ export default function PortfolioPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
             <div className="max-w-2xl">
-              <span className="font-mono text-[11px] font-medium tracking-[0.25em] uppercase text-accent mb-5 block">
+              <span className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-accent mb-5 block">
                 Our Work
               </span>
               <h1

@@ -20,7 +20,7 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
             <div className="max-w-2xl">
-              <span className="font-mono text-[11px] font-medium tracking-[0.25em] uppercase text-accent mb-5 block">
+              <span className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-accent mb-5 block">
                 Blog & Resources
               </span>
               <h1
@@ -54,7 +54,7 @@ export default function BlogPage() {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 aria-pressed={activeCategory === cat}
-                className={`font-mono text-[11px] font-medium tracking-[0.15em] uppercase px-3.5 py-1.5 rounded-full border transition-all duration-200 ease-out ${
+                className={`font-sans text-xs font-semibold tracking-[0.15em] uppercase px-3.5 py-1.5 rounded-full border transition-all duration-200 ease-out ${
                   activeCategory === cat
                     ? "bg-accent text-white border-accent"
                     : "border-line text-muted hover:border-accent hover:text-accent hover:bg-accent-dim"

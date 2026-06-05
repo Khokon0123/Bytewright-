@@ -50,7 +50,7 @@ export function ServicesGrid() {
                       <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-accent-dim text-accent">
                         <Icon size={18} strokeWidth={1.75} />
                       </div>
-                      <span className="font-mono text-[11px] font-medium tracking-[0.2em] uppercase text-accent">
+                      <span className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-accent">
                         {`0${i + 1}`}
                       </span>
                     </div>
@@ -75,7 +75,7 @@ export function ServicesGrid() {
 
                   {/* Use cases side */}
                   <div className={`flex flex-col gap-4 ${isEven ? "md:order-2" : "md:order-1"}`}>
-                    <span className="font-mono text-[11px] font-medium tracking-[0.2em] uppercase text-muted">
+                    <span className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-muted">
                       Use Cases
                     </span>
                     <ul className="flex flex-col gap-3" role="list">

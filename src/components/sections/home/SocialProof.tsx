@@ -81,7 +81,7 @@ export function SocialProof() {
                 className="flex flex-col items-center justify-center gap-2 py-10 md:py-0 text-center"
               >
                 <StatCounter value={stat.value} suffix={stat.suffix} />
-                <span className="font-mono text-[11px] font-medium tracking-[0.2em] uppercase text-muted">
+                <span className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-muted">
                   {stat.label}
                 </span>
               </div>

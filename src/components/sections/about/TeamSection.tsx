@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { LinkedinIcon } from "@/components/ui/SocialIcons";
@@ -15,29 +16,36 @@ export function TeamSection() {
           />
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {team.map((member, i) => (
-            <ScrollReveal key={member.id} delay={i * 0.1}>
-              <div className="flex flex-col gap-6 p-8 rounded-lg border border-line bg-surface hover:border-accent transition-all duration-200 ease-out group">
-                {/* Avatar */}
-                <div
-                  className={`w-20 h-20 rounded-full bg-gradient-to-br ${member.gradient} flex items-center justify-center`}
-                  aria-label={`${member.name} avatar`}
-                >
-                  <span className="font-display font-bold text-white text-xl">
-                    {member.initials}
-                  </span>
-                </div>
+            <ScrollReveal key={member.id} delay={i * 0.08}>
+              <div className="flex flex-col gap-5 p-7 rounded-lg border border-line bg-surface hover:border-accent transition-all duration-200 ease-out group h-full">
+                {/* Avatar — photo if available, else gradient initials */}
+                {member.photo ? (
+                  <div className="w-20 h-20 rounded-full overflow-hidden ring-2 ring-line group-hover:ring-accent transition-all duration-200">
+                    <Image
+                      src={member.photo}
+                      alt={member.name}
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className={`w-20 h-20 rounded-full bg-gradient-to-br ${member.gradient} flex items-center justify-center`}
+                    aria-label={`${member.name} avatar`}
+                  >
+                    <span className="font-display font-bold text-white text-xl">
+                      {member.initials}
+                    </span>
+                  </div>
+                )}
 
-                {/* Name + role */}
-                <div className="flex flex-col gap-1">
-                  <h3 className="font-display font-bold text-primary text-xl group-hover:text-accent transition-colors duration-200">
-                    {member.name}
-                  </h3>
-                  <span className="font-mono text-[11px] font-medium tracking-[0.15em] uppercase text-accent">
-                    {member.role}
-                  </span>
-                </div>
+                {/* Name */}
+                <h3 className="font-display font-bold text-primary text-lg group-hover:text-accent transition-colors duration-200">
+                  {member.name}
+                </h3>
 
                 {/* Bio */}
                 <p className="text-muted text-sm leading-relaxed flex-1">
@@ -52,8 +60,8 @@ export function TeamSection() {
                   aria-label={`${member.name} on LinkedIn`}
                   className="flex items-center gap-2 text-muted hover:text-accent text-sm font-medium transition-colors duration-200 w-fit border border-line rounded-lg px-3 py-2 hover:border-accent hover:bg-accent-dim"
                 >
-                  <LinkedinIcon size={14} />
-                  Connect on LinkedIn
+                  <LinkedinIcon size={13} />
+                  LinkedIn
                 </a>
               </div>
             </ScrollReveal>

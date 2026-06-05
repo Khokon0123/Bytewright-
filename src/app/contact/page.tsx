@@ -36,7 +36,7 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <ScrollReveal className="max-w-2xl mb-16">
-          <span className="font-mono text-[11px] font-medium tracking-[0.25em] uppercase text-accent mb-5 block">
+          <span className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-accent mb-5 block">
             Contact
           </span>
           <h1
@@ -64,7 +64,7 @@ export default function ContactPage() {
           <aside className="lg:col-span-2 flex flex-col gap-8">
             <ScrollReveal delay={0.1}>
               <div className="flex flex-col gap-5 p-7 rounded-lg border border-line bg-surface">
-                <span className="font-mono text-[11px] font-medium tracking-[0.2em] uppercase text-accent">
+                <span className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-accent">
                   What happens next?
                 </span>
                 <div className="flex flex-col gap-5">
@@ -89,7 +89,7 @@ export default function ContactPage() {
 
             <ScrollReveal delay={0.15}>
               <div className="flex flex-col gap-4 p-7 rounded-lg border border-line bg-surface">
-                <span className="font-mono text-[11px] font-medium tracking-[0.2em] uppercase text-accent">
+                <span className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-accent">
                   Reach us directly
                 </span>
 

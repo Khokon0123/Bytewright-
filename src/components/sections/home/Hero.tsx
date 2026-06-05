@@ -6,40 +6,40 @@ import { ArrowRight } from "lucide-react";
 import { LinkButton } from "@/components/ui/Button";
 
 /* ─────────────────────────────────────────────────────────────
-   MacBook mockup: cropped Apple product image + live iframe overlay
+   Monitor mockup: cinematic dark monitor image + live iframe
    Tweak SCREEN values if the iframe drifts off the bezels.
    ───────────────────────────────────────────────────────────── */
 const SCREEN = {
-  left:   "14.5%",   // from left edge of image
-  top:    "0.8%",    // from top edge (thin bezel at top)
-  width:  "71.2%",   // screen content width
-  height: "74.0%",   // screen content height (covers to keyboard edge)
+  left:   "10.2%",
+  top:    "6.2%",
+  width:  "79.6%",
+  height: "66.8%",
 };
 
-function MacBookMockup() {
+function MonitorMockup() {
   return (
-    <div className="relative w-full max-w-[680px] mx-auto">
-      {/* Laptop image — transparent background, cropped */}
+    <div className="relative w-full max-w-[640px] mx-auto">
+      {/* Monitor image — dark background blends with hero */}
       <Image
-        src="/images/macbook-final.png"
-        alt="MacBook showing the Bytewright website"
-        width={4000}
-        height={2300}
+        src="/images/monitor-transparent.png"
+        alt="Monitor showing the Bytewright website"
+        width={1600}
+        height={1200}
         className="w-full h-auto"
         priority
       />
 
-      {/* Live website iframe — overlaid exactly on screen area */}
+      {/* Live Bytewright site overlaid on the screen */}
       <div
         style={{
-          position:     "absolute",
-          left:         SCREEN.left,
-          top:          SCREEN.top,
-          width:        SCREEN.width,
-          height:       SCREEN.height,
-          overflow:     "hidden",
-          borderRadius: "4px",
-          background:   "#07070F",
+          position: "absolute",
+          left:     SCREEN.left,
+          top:      SCREEN.top,
+          width:    SCREEN.width,
+          height:   SCREEN.height,
+          overflow: "hidden",
+          borderRadius: "2px",
+          background: "#07070F",
         }}
       >
         <iframe
@@ -48,24 +48,24 @@ function MacBookMockup() {
           aria-hidden
           tabIndex={-1}
           style={{
-            position:         "absolute",
-            top:              0,
-            left:             0,
-            width:            "250%",
-            height:           "250%",
-            transform:        "scale(0.4)",
-            transformOrigin:  "top left",
-            pointerEvents:    "none",
-            border:           "none",
+            position:        "absolute",
+            top:             0,
+            left:            0,
+            width:           "250%",
+            height:          "250%",
+            transform:       "scale(0.4)",
+            transformOrigin: "top left",
+            pointerEvents:   "none",
+            border:          "none",
           }}
         />
-        {/* Subtle glare */}
+        {/* Subtle screen glare */}
         <div style={{
-          position:       "absolute",
-          inset:          0,
-          pointerEvents:  "none",
-          zIndex:         2,
-          background:     "linear-gradient(135deg,rgba(255,255,255,0.025) 0%,transparent 40%)",
+          position:      "absolute",
+          inset:         0,
+          pointerEvents: "none",
+          zIndex:        2,
+          background:    "linear-gradient(135deg,rgba(255,255,255,0.025) 0%,transparent 40%)",
         }} />
       </div>
     </div>
@@ -74,8 +74,8 @@ function MacBookMockup() {
 
 /* ── Hero ─────────────────────────────────────────────────── */
 export function Hero() {
-  const textRef   = useRef<HTMLDivElement>(null);
-  const laptopRef = useRef<HTMLDivElement>(null);
+  const textRef    = useRef<HTMLDivElement>(null);
+  const monitorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -88,7 +88,7 @@ export function Hero() {
       tl.fromTo(textRef.current,
         { y: 40, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.9 }
-      ).fromTo(laptopRef.current,
+      ).fromTo(monitorRef.current,
         { y: 60, opacity: 0 },
         { y: 0, opacity: 1, duration: 1.1 },
         "-=0.55"
@@ -146,15 +146,14 @@ export function Hero() {
                 Book a Meeting
               </LinkButton>
             </div>
-
           </div>
 
-          {/* Right: MacBook */}
+          {/* Right: monitor */}
           <div
-            ref={laptopRef}
+            ref={monitorRef}
             className="opacity-0 flex justify-center lg:justify-end"
           >
-            <MacBookMockup />
+            <MonitorMockup />
           </div>
 
         </div>

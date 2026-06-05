@@ -19,7 +19,7 @@ export function MeetingCTA() {
             />
 
             <div className="relative z-10 flex flex-col items-center gap-6">
-              <span className="font-mono text-[11px] font-medium tracking-[0.25em] uppercase text-accent">
+              <span className="font-sans text-xs font-semibold tracking-[0.15em] uppercase text-accent">
                 Get Started
               </span>
 

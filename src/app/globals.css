@@ -152,6 +152,30 @@ body {
 }
 
 
+/* ── Clients marquee (left → right) ──────────────────────────────────── */
+.clients-track {
+  display: flex;
+  width: max-content;
+  animation: clients-scroll 35s linear infinite;
+  padding: 0.5rem 0;
+}
+
+.clients-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes clients-scroll {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients-track {
+    animation: none;
+    overflow-x: auto;
+  }
+}
+
 /* ── Marquee scrolling strip ──────────────────────────────────────────── */
 .marquee-track {
   display: flex;
