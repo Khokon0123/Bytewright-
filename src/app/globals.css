@@ -1,19 +1,7 @@
 @import "tailwindcss";
 
-/* ── Raw design tokens — switch with .dark class ─────────────────────── */
+/* ── Design tokens — dark only ────────────────────────────────────────── */
 :root {
-  --bg:             #F8F8FC;
-  --surface:        #FFFFFF;
-  --surface-hover:  #F2F2FA;
-  --border:         #E2E2F0;
-  --text-primary:   #0A0A15;
-  --text-secondary: #6B6B8A;
-  --accent:         #6366F1;
-  --accent-dim:     rgba(99, 102, 241, 0.08);
-  --accent-hover:   #4F46E5;
-}
-
-.dark {
   --bg:             #07070F;
   --surface:        #0E0E1C;
   --surface-hover:  #141428;

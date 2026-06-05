@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { LinkButton } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
@@ -74,17 +73,15 @@ export function Navbar() {
             ))}
           </ul>
 
-          {/* Right: CTA + theme toggle */}
+          {/* Right: CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
             <LinkButton href="/contact" size="sm">
               Book a Meeting
             </LinkButton>
           </div>
 
-          {/* Mobile: theme toggle + hamburger */}
+          {/* Mobile: hamburger */}
           <div className="flex md:hidden items-center gap-2">
-            <ThemeToggle />
             <button
               onClick={() => setDrawerOpen(true)}
               aria-label="Open navigation menu"
