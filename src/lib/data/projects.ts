@@ -82,4 +82,18 @@ export const projects: Project[] = [
     gradient: "from-cyan-900/40 to-blue-900/40",
     tags: ["Web App", "DeFi", "Fintech"],
   },
+  {
+    id: "asia-market",
+    client: "Asia Market",
+    type: "Web Development",
+    industry: "Retail / E-Commerce",
+    description:
+      "A specialty Asian grocery retailer needed a modern storefront to showcase their product range, serve their local community, and drive foot traffic and online orders.",
+    result:
+      "Delivered a vibrant, easy-to-navigate site with product listings and a store locator that strengthened community reach and brand recognition.",
+    rating: 5,
+    initials: "AM",
+    gradient: "from-red-900/40 to-orange-900/40",
+    tags: ["Website", "Retail", "E-Commerce"],
+  },
 ];

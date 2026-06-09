@@ -13,6 +13,7 @@ const clients: LogoEntry[] = [
   { name: "Bridging Generations",     kind: "text" },
   { name: "Flora Studio",             kind: "text" },
   { name: "OnlySwap",                 kind: "text" },
+  { name: "Asia Market",              kind: "text" },
 ];
 
 const doubled = [...clients, ...clients];
