@@ -26,8 +26,8 @@ export function ProjectsPreview() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {projects.map((project, i) => (
-            <ScrollReveal key={project.id} delay={i * 0.1}>
-              <div className="group flex flex-col rounded-lg border border-line bg-surface hover:border-accent transition-all duration-200 ease-out overflow-hidden">
+            <ScrollReveal key={project.id} delay={i * 0.1} className="h-full">
+              <div className="group flex flex-col h-full rounded-lg border border-line bg-surface hover:border-accent transition-all duration-200 ease-out overflow-hidden">
                 {/* Image placeholder */}
                 <div
                   className={`relative h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}

@@ -54,4 +54,32 @@ export const projects: Project[] = [
     gradient: "from-orange-900/40 to-amber-900/40",
     tags: ["Website", "B2B", "Lead Generation"],
   },
+  {
+    id: "flora-studio",
+    client: "Flora Studio",
+    type: "Web Development",
+    industry: "Beauty / Wellness",
+    description:
+      "A boutique beauty studio needed an elegant online presence to showcase their services, enable appointment bookings, and build a loyal client base.",
+    result:
+      "Crafted a refined, visually-driven website with integrated booking flow that elevated the brand and increased client retention.",
+    rating: 5,
+    initials: "FS",
+    gradient: "from-rose-900/40 to-pink-900/40",
+    tags: ["Website", "Booking", "Beauty"],
+  },
+  {
+    id: "onlyswap",
+    client: "OnlySwap",
+    type: "Web App",
+    industry: "Fintech / DeFi",
+    description:
+      "A DeFi platform needed a clean, fast trading interface that made token swapping accessible to both crypto-native and first-time users.",
+    result:
+      "Shipped a performant, intuitive swap interface with real-time pricing and wallet integration that drove strong early user adoption.",
+    rating: 5,
+    initials: "OS",
+    gradient: "from-cyan-900/40 to-blue-900/40",
+    tags: ["Web App", "DeFi", "Fintech"],
+  },
 ];
